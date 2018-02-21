@@ -18,7 +18,7 @@ defmodule Histogram do
     # Scale the results:
     |> Enum.into([])
     |> Enum.reduce(%{}, fn {index, value}, acc ->
-      Map.put(acc, index, Kernel.trunc((255 * value) / (640 * 480)) )
+      Map.put(acc, index, Kernel.trunc((255 * value) / (720 * 960)) )
     end)
   end
 

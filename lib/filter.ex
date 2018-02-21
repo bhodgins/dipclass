@@ -21,7 +21,7 @@ defmodule Filter do
   end
 
   # cfilter prototype header:
-  def color_channel(image, channel, mask \\ 0xff)
+  def rgb_channel(image, channel, mask \\ 0xff)
 
   # Single channel RGB:red filtering:
   def rgb_channel( %{ type: :rgb } = image, :red, mask) do
