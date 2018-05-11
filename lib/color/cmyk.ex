@@ -1,7 +1,9 @@
 defmodule Color.CMYK do
 
   # Convert RGB to CMY:
-  def convert( %{ type: :rgb } = image, :cmy) do
+  def convert(image, :cmy) do
+    image = image |> Color.expect(:rgb)
+
     %{ image | pixels: Enum.map(image.pixels, fn([b, g, r]) ->
       r = r / (r + g + b)
       g = g / (r + g + b)
@@ -13,6 +15,6 @@ defmodule Color.CMYK do
 
   # Convert RGB to XMYK:
   def convert( %{ type: :rgb } = image, :cmyk) do
-
+    # TODO
   end
 end

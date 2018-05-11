@@ -7,5 +7,14 @@ defmodule Color do
   def convert(image, :cmyk), do: Color.CMYK.convert(image, :cmyk)
 
   # Normalization stubs:
-  def normalize( %{ type: :rgb } = image), do: Color.RGB.normalize(image)
+  def normalize(   %{ type: :rgb } = image), do: Color.RGB.normalize(image)
+
+  # Conversion checks:
+  def expect(image, type) do
+     if image.type == type do
+       image
+     else
+       convert(image, type)
+     end
+  end
 end
